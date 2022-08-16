@@ -7,15 +7,14 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-Order.create(product: "Lays", desc:"Chips",qty:1, price:10)
-Order.create(product: "KitKat", desc:"chocolate",qty:1, price:10)
-Order.create(product: "Boost", desc:"Drink",qty:1, price:150)
-Order.create(product: "Nescafe", desc:"Cofee",qty:1, price:100)
-Order.create(product: "Pepsi", desc:"Deink",qty:1, price:20)
-Order.create(product: "7up", desc:"Drink",qty:1, price:20)
-Order.create(product: "Kurkure", desc:"Snacks",qty:1, price:10)
-Order.create(product: "Maggi", desc:"Snacks",qty:1, price:24)
-Order.create(product: "Jam", desc:"Snacks",qty:1, price:48)
-Order.create(product: "Chocos", desc:"Breakfast",qty:1, price:50)
-Order.create(product: "Nutella", desc:"Spread",qty:1, price:280)
-Order.create(product: "Honey", desc:"Spread",qty:1, price:185)
+prod=["Iphone","OnePlus","Oppo","Vivo","MI","Samsung","Nokia","iPhone2","iPhone3","iPhone4","iPhone5","iPhone6","iPhone7","iPhone8"]
+price=[100000,54000,35000,30000,15000,45000,15000,30000,35000,40000,45000,50000,60000,70000,80000]
+desc=prod
+
+14.times do |n|
+  name = prod[n]
+  pr=price[n]
+  d=desc[n]
+  Product.create(product:name ,price:pr, desc:d)
+end
+
