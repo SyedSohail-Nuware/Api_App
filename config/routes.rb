@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :user
   post '/login', to: 'authentication#login'
   resources :order
-  # resources :product
+  resources :product
   get '/syed/:id', to: 'order#place_order'
 end
