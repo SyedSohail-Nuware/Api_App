@@ -9,7 +9,8 @@ class OrderController < ApplicationController
 
   def place_order
     # @user = User.find(params[:id])
-    @user = User.find_by_id(params[:id])
-    render json: {order: @user.order} , status: :ok
+    @user = Order.all
+    # @pro = @user.product
+    render json: @user  , status: :ok
   end
 end

@@ -7,14 +7,16 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-prod=["Iphone","OnePlus","Oppo","Vivo","MI","Samsung","Nokia","iPhone2","iPhone3","iPhone4","iPhone5","iPhone6","iPhone7","iPhone8"]
-price=[100000,54000,35000,30000,15000,45000,15000,30000,35000,40000,45000,50000,60000,70000,80000]
-desc=prod
+prod=["Clean code","Clean Architecture","Clean code in Python","Practcal API Design","Docker Demystified","Introduction to data science","Java professional guide","Ruby devolepers guide","Design pattrens"]
+price=[300,500,300,300,500,400,1500,300,300]
+# desc=prod
+imgage = ['clean code.jpg',"clean architecture.jpg",'clean code in python.png','Practcal api design.png','Docker Demystified.webp','introduction to data science.png','Java professional guide.png','Ruby devolepers guide.png','Design pattrens.jpg']
 
-14.times do |n|
+9.times do |n|
   name = prod[n]
   pr=price[n]
-  d=desc[n]
-  Product.create(product:name ,price:pr, desc:d)
+  d= 'Book House'
+  img = imgage[n]
+  Product.create(product:name ,price:pr, desc:d,image:img)
 end
 

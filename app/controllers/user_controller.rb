@@ -8,11 +8,14 @@ class UserController < ApplicationController
 
   # display one user
   def show
-    render json: @user, status: :ok
+    if @user.present?
+      render json: @user, status: :ok
+    else
+      render json: {Message: "User not found"}, status: :not_found
+    end
   end
 
   def create
-
     @user = User.new(user_parems)
     if @user.save
       toke = jwt_encode({user_id: @user.id})
@@ -23,12 +26,16 @@ class UserController < ApplicationController
   end
 
   def update
-    unless @user.update(user_parems)
-      render json: {errors: @user.errors.full_message}, status: :unprocessable_entity
+    @user = User.find(params[:id])
+    if @user.update(user_parems)
+      render json: {user: @user}, status: :ok
+    else
+      render json: {errors: " Invalid User" }
     end
   end
 
   def destroy
+    @user = set_user
     @user.destroy
   end
 

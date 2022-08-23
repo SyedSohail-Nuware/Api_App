@@ -4,7 +4,6 @@ class ProductController < ApplicationController
   end
 
   def show
-    render json: Product.first.image
+    render json: Product.find_by_id(params[:id])
   end
-
 end
