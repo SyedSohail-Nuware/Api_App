@@ -49,13 +49,11 @@ def display
     "updated_at": "2022-08-03T06:22:04.770Z"
 }]
 
-6.times do |i|
-  hash[i] << @res[i]
+@res.length.times do |i|
+  @hash.push(@res[i][:name])
 end
-puts (hash)
-
-# puts (res.length)
-
+# puts "#{@res[i][:name]}"
+puts (@hash)
 end
 
 display

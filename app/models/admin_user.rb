@@ -1,5 +1,5 @@
-class User < ApplicationRecord
-  has_many :order
+class AdminUser < ApplicationRecord
+
   has_secure_password
 
   before_save { self.email = email.downcase }
@@ -7,7 +7,4 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: {minimum:6, maximum:24}
-
-  
-  
 end

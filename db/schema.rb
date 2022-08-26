@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_23_105301) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_25_091445) do
+  create_table "admin_users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string "product"
     t.integer "price"
@@ -38,7 +46,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_105301) do
     t.string "address"
     t.string "phone"
     t.string "pin"
-    t.boolean "admin"
   end
 
   add_foreign_key "orders", "users"

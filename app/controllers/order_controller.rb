@@ -9,8 +9,30 @@ class OrderController < ApplicationController
 
   def place_order
     # @user = User.find(params[:id])
-    @user = Order.all
+    @order = Order.all
+    @users = User.all
+    @user_id = [1,2,3,4,5]
+    # @id = setUser_id(@order)
+    # @name = setUser_name(@user)
+
     # @pro = @user.product
-    render json: @user  , status: :ok
+    render json: @order, status: :ok
   end
+
+  def setUser_id(data)
+    @res = []
+    data.length.times do |n|
+      @res.push(data[n].user_id)
+    end
+    return @res
+  end
+
+  def setUser_name(name)
+    @hash=[]
+    name.length.times do |i|
+      hash.push(name[i][:name])
+    end
+    return @hash
+  end
+
 end
