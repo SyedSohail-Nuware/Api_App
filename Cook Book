@@ -1,0 +1,95 @@
+Cook Book for installation
+
+$ - Is the command to run on terminal.
+
+Install nodejs
+
+$ curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+$ sudo apt-get install -y nodejs
+
+To Install Ruby run the following command:
+
+$ sudo apt update
+
+$ sudo apt install git curl autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev
+
+$ curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+
+$ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+source ~/.bashrc
+
+$ rbenv -v
+
+$ rbenv install 3.0.2
+
+$ rbenv global 3.0.2
+
+
+To check the installation of ruby is successful, run:
+
+$ rails --version
+
+To Install Rails run the following command:
+
+$ gem install rails
+
+To Install Docker run the following command:
+
+$ sudo apt-get install -y docker.io
+
+To Install Docker-Compose run the following command:
+
+$ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+Docker Documentaion:
+https://docs.docker.com/
+
+To Install Postgresql run the following command:
+$ sudo apt-get -y install postgresql
+______________________________________________________________________________________________________________________________________________________________________
+
+To RUN the project redirect to project location and run following command:
+$ sudo docker-compose build
+
+$ sudo docker-compose up postgres
+
+Open new terminal window and run
+$ sudo docker-compose exec postgres /bin/bash
+# su postgres -c 'createdb numi_development'
+# exit
+
+To access the database dump
+$ pg_restore --verbose --clean --no-acl --no-owner -h localhost -U dev -d numi_development <db dump filepath>
+
+Stop the postgres server and start puma
+
+$ sudo docker-compose up
+
+In new terminal run
+$ sudo docker-compose exec puma bundle exec rails searchkick:reindex:all
+
+
+_________________________________________________________
+admin@tracker.com
+B3@chb@ll
+
+------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
